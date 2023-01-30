@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Profile from './Profile.js';
 
-function App() {
+import './App.css';
+export default function Main() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <div className="App">
+    
+     <h1>React Calculator</h1>
+      <input id="Screen"type="textbox"></input>
+      <div class="grid-container">
+      <Profile label="7" />
+      <Profile label="8" />
+      <Profile label="9" />
+      <Profile label="÷" />
+      <Profile label="4" />
+      <Profile label="5" />
+      <Profile label="6" />
+      <Profile label="x" />
+      <Profile label="1" />
+      <Profile label="2" />
+      <Profile label="3" />
+      <Profile label="-" />
+      <Profile label="CR" />
+      <Profile label="0" />
+      <Profile label="=" />
+      <Profile label="+"/>
+      </div>
+      </div>
+    </section>
   );
 }
-
-export default App;
