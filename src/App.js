@@ -1,37 +1,58 @@
-import Profile from './Profile.js';
-
-import { useState } from 'react';
-
 import './App.css';
-export default function Main() {
-  
+import React, { useState } from "react";
+
+const Calculator = () => {
+  const [input, setInput] = useState("");
+
+  const handleClick = (value) => {
+    setInput(input + value);
+  };
+
+  const calculate = () => {
+    try {
+      setInput(eval(input).toString());
+    } catch (error) {
+      setInput("Error");
+    }
+  };
+
+  const clear = () => {
+    setInput("");
+  };
+
   return (
-    <section>
-      <div className="App">
-    
-     <h1>React Calculator</h1>
+  
+    <div class="calculator">
+
+      <input  class="screen"type="text" value={input} disabled />
+      <br />
+      <br />
+      <div class="buttons">
+      <button onClick={() => handleClick("1")}>1</button>
+      <button onClick={() => handleClick("2")}>2</button>
+      <button onClick={() => handleClick("3")}>3</button>
+      <button onClick={() => handleClick("+")}>+</button>
+      <br />
+      <button onClick={() => handleClick("4")}>4</button>
+      <button onClick={() => handleClick("5")}>5</button>
+      <button onClick={() => handleClick("6")}>6</button>
+      <button onClick={() => handleClick("-")}>-</button>
+      <br />
+      <button onClick={() => handleClick("7")}>7</button>
+      <button onClick={() => handleClick("8")}>8</button>
+      <button onClick={() => handleClick("9")}>9</button>
+      <button onClick={() => handleClick("*")}>*</button>
+      <br />
+      <button onClick={clear}>CR</button>
+      <button onClick={() => handleClick("0")}>0</button>
+      <button onClick={calculate}>=</button>
+      <button onClick={() => handleClick("/")}>/</button>
      
-      <input value="0" id="Screen"type="text"></input>
-      <div class="grid-container">
-      <Profile label="7" />
-      <Profile label="8" />
-      <Profile label="9" />
-      <Profile label="÷" />
-      <Profile label="4" />
-      <Profile label="5" />
-      <Profile label="6" />
-      <Profile label="x" />
-      <Profile label="1" />
-      <Profile label="2" />
-      <Profile label="3" />
-      <Profile label="-" />
-      <Profile label="CR" />
-      <Profile label="0" />
-      <Profile id="plus"label="=" />
-      <Profile label="+"/>
-      </div>
-      </div>
+    </div>
     
-    </section>
+    </div>
+    
   );
-}
+};
+
+export default Calculator;
